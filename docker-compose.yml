@@ -1,0 +1,28 @@
+version: '3.7'
+services:
+  maria:
+    image: mariadb:latest
+    ports: 
+    - "3306:3306"
+    environment:       
+      MYSQL_USER: libertadores
+      MYSQL_PASSWORD: tetracampeao
+      MYSQL_DATABASE: santosfc
+      MYSQL_ROOT_PASSWORD: peleeterno
+      TZ: America/Sao_Paulo        
+  redis:
+    image: redis:latest      
+  dev:    
+    image: elninocavalcanti10/laravel:php7.4-cli        
+    environment:
+       uid: ${UID}
+    user: ${UID}
+    ports:
+    - "8000:8000"
+    volumes:    
+    - './src:/app'
+    working_dir: /app
+    links:
+    - maria
+    - redis
+    command: /bin/sh -c "composer install && npm install && npm run dev && php artisan migrate:fresh --seed && php artisan serve --host 0.0.0.0"
