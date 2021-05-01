@@ -18,4 +18,10 @@ class Category extends Model
         'id',
         'name',
     ];
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
+
 }
