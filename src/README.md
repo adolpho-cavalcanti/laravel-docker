@@ -8,6 +8,10 @@ Segue o link do vídeo explicando e mostrando o **[Projeto](https://www.youtube.
 - 2- Depois do Docker fazer sua "magia" acontecer vá até o seu navegador e acesse: http://localhost:8000
 
 Pronto! Agora você pode testar o sistema.
+
+## Comandos Docker
+-   docker-compose up (Para "startar")
+-   docker-compose exec dev bash  (Para acessar o bash do Laravel e usar os comandos do framework)
 ### Requisitos do Sistema antendido
 - Faça paginação;
 - Utilize ajax;
